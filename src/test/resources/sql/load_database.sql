@@ -1,0 +1,24 @@
+CREATE TABLE TIME
+(
+    TIME_ID         INT             NOT NULL    IDENTITY    PRIMARY KEY,
+    NOME            VARCHAR(255)    NOT NULL
+);
+
+INSERT INTO TIME VALUES (1, 'Corinthians');
+INSERT INTO TIME VALUES (2, 'RedBull');
+INSERT INTO TIME VALUES (3, 'Atletico Mineiro');
+
+CREATE TABLE CAMPANHA
+(
+    ID              INT             NOT NULL    IDENTITY    PRIMARY KEY,
+    INICIO_VIGENCIA DATE            NOT NULL,
+    FIM_VIGENCIA    DATE            NOT NULL,
+    NOME            VARCHAR(255)    NOT NULL,
+    TIME_ID NUMBER(20)
+);
+ALTER TABLE CAMPANHA ADD CONSTRAINT FKTIME_ID FOREIGN KEY (TIME_ID) REFERENCES TIME(TIME_ID);;
+
+------------------- ############ MASSA DE DADOS ########### -------------------
+INSERT INTO CAMPANHA VALUES (1,	NOW(), NOW() + INTERVAL 5 DAY, 'Nova Campanha', 1);
+INSERT INTO CAMPANHA VALUES (2, NOW(), NOW() + INTERVAL 4 DAY, 'Outra Campanha', 2);
+INSERT INTO CAMPANHA VALUES (3,  NOW(), NOW() + INTERVAL 2 DAY, 'Campanha para ser deletada', 2);
