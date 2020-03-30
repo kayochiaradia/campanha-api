@@ -46,7 +46,7 @@ public class CampanhaControllerTest extends IntegrationBaseTest {
     @Test
     public void deveRetornarQuandoHouverCampanhasAtivas() {
         ResponseEntity<List<CampanhaVO>> campanhas = campanhaController.buscarTodasCampanhas();
-        assertThat(campanhas.getBody()).as("Deve retornar as 3 campanhas ativas").hasSize(4);
+        assertThat(campanhas.getBody()).as("Deve retornar as 4 campanhas ativas").hasSize(4);
     }
 
 
