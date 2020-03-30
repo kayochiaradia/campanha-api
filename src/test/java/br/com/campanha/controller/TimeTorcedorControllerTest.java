@@ -43,7 +43,7 @@ public class TimeTorcedorControllerTest extends IntegrationBaseTest {
     @Test
     public void retornarTodosOsTimesCadastrados() {
         ResponseEntity<List<TimeVO>> timeVO = timeTorcedorController.buscarTodosOsTimes();
-        assertThat(timeVO.getBody()).as("Deve retornar as 4 times cadastrado").hasSize(3);
+        assertThat(timeVO.getBody()).as("Deve retornar os 3 times cadastrado").hasSize(3);
     }
 
 
